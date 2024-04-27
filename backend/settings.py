@@ -14,15 +14,19 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 import dj_database_url
 import django_heroku
+
+
+
+
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
 
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -140,7 +144,7 @@ USE_TZ = True
 # Other settings above
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
