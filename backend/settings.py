@@ -34,7 +34,7 @@ import django_heroku
 SECRET_KEY = "django-insecure-9^gl3^(1io6jm^y+)v=ir=+w*o5y#y77n6v-k^u*-0ga1_1zmc"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['djangofirstproject-784c27cb604a.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -97,8 +97,13 @@ WSGI_APPLICATION = "backend.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases efhsdjf soidjdso soidjesd n
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Default
 
 
 
