@@ -23,10 +23,6 @@ import django_heroku
 
 
 
-
-
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -168,3 +164,6 @@ CORS_ORIGIN_WHITELIST = [
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
+
+
+CORS_ALLOW_ALL_ORIGINS = True  # For development only!
