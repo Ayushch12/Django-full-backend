@@ -23,8 +23,6 @@ import django_heroku
 
 
 
-# Configure Django App for Heroku.
-django_heroku.settings(locals())
 
 
 
@@ -67,7 +65,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware'
 
 
@@ -148,8 +145,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-# Ensure that BASE_DIR is defined correctly, typically it's something like:
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Correct BASE_DIR setting
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
@@ -164,3 +161,5 @@ CORS_ORIGIN_WHITELIST = [
     'https://example.com',     # Allow all domains from example.com
 ]
 
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
